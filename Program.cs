@@ -98,9 +98,16 @@ namespace Blackjack
         while (userInput == "" && (totalPlayerHandValue < 22))
         {
           // Prompt the user to either hit or stand
-          Console.WriteLine("Press Enter to hit or type (STAND) to stay.");
+          Console.WriteLine("Press Enter to hit or type 's' to stay.");
           userInput = Console.ReadLine().ToLower();
 
+          while (userInput != "" && userInput != "s")
+          {
+            Console.WriteLine("I'm sorry. That is not a valid input.");
+            Console.WriteLine("");
+            Console.WriteLine("Press Enter to hit or type 's' to stay.");
+            userInput = Console.ReadLine().ToLower();
+          }
 
           // If they chose to hit...
           if (userInput == "")
@@ -145,8 +152,6 @@ namespace Blackjack
         }
         else
         {
-
-
           /********************** DEALER HIT OR STAND (HUH?) ***************************/
           Console.WriteLine("This is the dealers hand: ");
           for (int i = 0; i < dealerHand.Count; i++)
@@ -192,13 +197,14 @@ namespace Blackjack
 
         }
 
+        /********************** DOES THE USER WANT TO PLAY AGAIN? ***************************/
         Console.WriteLine("");
         Console.WriteLine("Press enter to play again or enter 'q' to quit");
 
         userInput = "";
         userInput = Console.ReadLine().ToLower();
 
-        while (userInput != "" && userInput != "stand")
+        while (userInput != "" && userInput != "q")
         {
           Console.WriteLine("I'm sorry. That is not a valid input.");
           Console.WriteLine("");
