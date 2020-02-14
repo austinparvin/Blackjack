@@ -17,12 +17,17 @@ namespace Blackjack
 
     public int GetCardValue()
     {
-      if (Rank.ToLower() == "ace") { 
-          return 11;
-      } else if (Rank.ToLower() == "queen" || Rank.ToLower() == "king" || Rank.ToLower() == "jack"){
-          return 10;
-      } else {
-          return int.Parse(Rank);
+      if (Rank.ToLower() == "ace")
+      {
+        return 11;
+      }
+      else if (Rank.ToLower() == "queen" || Rank.ToLower() == "king" || Rank.ToLower() == "jack")
+      {
+        return 10;
+      }
+      else
+      {
+        return int.Parse(Rank);
       }
     }
   }
