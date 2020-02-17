@@ -18,7 +18,7 @@ namespace Blackjack
     public void DealACard( List<Card> deck) {
    
           Hand.Add(deck[0]);
-          HandValue += deck[0].GetCardValue();
+          HandValue += deck[0].Value;
           deck.RemoveAt(0);
         
     }

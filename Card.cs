@@ -8,6 +8,8 @@ namespace Blackjack
     public string Suit { get; set; }
     // color
     public string Color { get; set; }
+    // Value
+    public int Value { get; set; }
 
     //Method
     public string DisplayCard()
@@ -15,20 +17,7 @@ namespace Blackjack
       return $"{Rank} of {Suit}";
     }
 
-    public int GetCardValue()
-    {
-      if (Rank.ToLower() == "ace")
-      {
-        return 11;
-      }
-      else if (Rank.ToLower() == "queen" || Rank.ToLower() == "king" || Rank.ToLower() == "jack")
-      {
-        return 10;
-      }
-      else
-      {
-        return int.Parse(Rank);
-      }
-    }
+    
+
   }
 }

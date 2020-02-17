@@ -65,28 +65,42 @@ namespace Blackjack
 
     }
 
+    // public void AskWhatAceIs()
+    // {
+    //   // if player has a card in their hand that is an Ace ask them if they want it to be a 1 or 11
+    //   foreach (Player p in Players)
+    //   {
+    //     for (int i = 0; i < p.Hand.Count; i++)
+    //     {
+    //       p.Hand[i].DisplayCard().ToLower().Contains("ace");
+    //       Console.WriteLine($"Do you want the {p.Hand[i].DisplayCard()} to be considered a (1) or an (11)?");
+    //       UserInput = Console.ReadLine();
+    //       ValidateInput("1", "11");
+    //       if (UserInput != "11"){
+
+    //       }
+
+
+    //     }
+    //   }
+    // }
     public void GetDealerFinalHand(Deck deck)
     {
-      foreach (Player p in Players)
-      {
 
 
-        if (p.HandValue < 21)
-        {
-          /********************** DEALER HIT OR STAND (HUH?) ***************************/
-          Console.WriteLine("");
-          Console.WriteLine("This is the dealers hand: ");
+      /********************** DEALER HIT OR STAND (HUH?) ***************************/
+      Console.WriteLine("");
+      Console.WriteLine("This is the dealers hand: ");
 
-          while (Players[0].HandValue < 17)
-            Players[0].DealACard(deck.Cards);
+      while (Players[0].HandValue < 17)
+        Players[0].DealACard(deck.Cards);
 
-          Players[0].ShowHand();
-          Console.WriteLine("");
-          Console.WriteLine($"The dealers final total hand value: {Players[0].HandValue}");
+      Players[0].ShowHand();
+      Console.WriteLine("");
+      Console.WriteLine($"The dealers final total hand value: {Players[0].HandValue}");
 
 
-        }
-      }
+
     }
 
     public void CalculateWinners()
@@ -101,36 +115,33 @@ namespace Blackjack
             Console.WriteLine("");
             Console.WriteLine($"{p.Name} busted. Dealer wins");
           }
+          else if (Players[0].HandValue > 21)
+          {
+            Console.WriteLine("");
+            Console.WriteLine($"Dealer busts. {p.Name} wins.");
+          }
+
           else
           {
-
-            if (Players[0].HandValue > 21)
+            if (Players[0].HandValue > p.HandValue)
             {
               Console.WriteLine("");
-              Console.WriteLine($"Dealer busts. {p.Name} wins.");
+              Console.WriteLine($"Dealer wins. {p.Name} lose.");
+            }
+            else if (Players[0].HandValue == p.HandValue)
+            {
+              Console.WriteLine("");
+              Console.WriteLine($"{p.Name} and the dealer tied!");
+            }
+            else if (Players[0].HandValue < p.HandValue)
+            {
+              Console.WriteLine("");
+              Console.WriteLine($"{p.Name} win. The dealer loses.");
             }
             else
             {
-              if (Players[0].HandValue > p.HandValue)
-              {
-                Console.WriteLine("");
-                Console.WriteLine($"Dealer wins. {p.Name} lose.");
-              }
-              else if (Players[0].HandValue == p.HandValue)
-              {
-                Console.WriteLine("");
-                Console.WriteLine($"{p.Name} and the dealer tied!");
-              }
-              else if (Players[0].HandValue < p.HandValue)
-              {
-                Console.WriteLine("");
-                Console.WriteLine($"{p.Name} win. The dealer loses.");
-              }
-              else
-              {
-                Console.WriteLine("");
-                Console.WriteLine("ERROR: unable to define game outcome.  Check if/else statements");
-              }
+              Console.WriteLine("");
+              Console.WriteLine("ERROR: unable to define game outcome.  Check if/else statements");
             }
           }
         }
@@ -226,7 +237,7 @@ namespace Blackjack
       UserInput = Console.ReadLine().ToLower();
 
       ValidateInput("", "q");
-    
+
       if (UserInput != "")
       {
         isPlaying = false;

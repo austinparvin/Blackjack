@@ -22,8 +22,21 @@ namespace Blackjack
         for (var n = 0; n < Ranks.Count; n++)
         {
           var card = new Card();
+
           card.Rank = Ranks[n];
           card.Suit = Suits[i];
+          if (card.Rank.ToLower() == "ace")
+          {
+            card.Value = 11;
+          }
+          else if (card.Rank.ToLower() == "queen" || card.Rank.ToLower() == "king" || card.Rank.ToLower() == "jack")
+          {
+            card.Value = 10;
+          }
+          else
+          {
+            card.Value = int.Parse(card.Rank);
+          }
           if (card.Suit == "diamonds" || card.Suit == "hearts")
             card.Color = "red";
           else
@@ -34,14 +47,15 @@ namespace Blackjack
       }
     }
 
-    public void ShuffleDeck(){
-        for (int i = Cards.Count - 1; i >= 0; i--)
-        {
-          var j = new Random().Next(Cards.Count);
-          var temp = Cards[j];
-          Cards[j] = Cards[i];
-          Cards[i] = temp;
-        }
+    public void ShuffleDeck()
+    {
+      for (int i = Cards.Count - 1; i >= 0; i--)
+      {
+        var j = new Random().Next(Cards.Count);
+        var temp = Cards[j];
+        Cards[j] = Cards[i];
+        Cards[i] = temp;
+      }
     }
   }
 }
