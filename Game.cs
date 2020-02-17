@@ -10,7 +10,7 @@ namespace Blackjack
     public List<Player> Players { get; set; }
     // Methods
 
-    public bool isPlaying {get; set;}
+    public bool isPlaying { get; set; }
 
     public Game()
     {
@@ -51,6 +51,14 @@ namespace Blackjack
           p.ShowHand();
           Console.WriteLine("------------------------");
           p.ShowHandValue();
+          Console.WriteLine("");
+        }
+        else
+        {
+          Console.WriteLine($"{p.Name} drew:");
+          Console.WriteLine("------------------------");
+          Console.WriteLine(p.Hand[0].DisplayCard());
+          Console.WriteLine("------------------------");
           Console.WriteLine("");
         }
       }
@@ -208,7 +216,7 @@ namespace Blackjack
       }
     }
 
-    public bool AskPlayAgain()
+    public void AskPlayAgain()
     {
       Console.WriteLine("");
       Console.WriteLine("Press enter to play again or enter 'q' to quit");
@@ -218,20 +226,14 @@ namespace Blackjack
       UserInput = Console.ReadLine().ToLower();
 
       ValidateInput("", "q");
-      // while (userInput != "" && userInput != "q")
-      // {
-      //   Console.WriteLine("I'm sorry. That is not a valid input.");
-      //   Console.WriteLine("");
-      //   Console.WriteLine("Press Enter to play again or enter 'q' to quit");
-      //   userInput = Console.ReadLine().ToLower();
-      // }
+    
       if (UserInput != "")
       {
-        return isPlaying = false;
+        isPlaying = false;
       }
       else
       {
-        return isPlaying = true;
+        isPlaying = true;
       }
     }
   }
