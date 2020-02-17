@@ -45,6 +45,7 @@ namespace Blackjack
           Cards.Add(card);
         }
       }
+
     }
 
     public void ShuffleDeck()

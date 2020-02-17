@@ -12,6 +12,8 @@ namespace Blackjack
 
     public bool isPlaying { get; set; }
 
+
+
     public Game()
     {
       Players = new List<Player>();
@@ -72,12 +74,16 @@ namespace Blackjack
     //   {
     //     for (int i = 0; i < p.Hand.Count; i++)
     //     {
-    //       p.Hand[i].DisplayCard().ToLower().Contains("ace");
+    //      if(p.Hand[i].DisplayCard().ToLower().Contains("ace")){
+
+    //       
     //       Console.WriteLine($"Do you want the {p.Hand[i].DisplayCard()} to be considered a (1) or an (11)?");
     //       UserInput = Console.ReadLine();
     //       ValidateInput("1", "11");
     //       if (UserInput != "11"){
-
+    //set the cards value to 1
+    // p.Hand[i].Vaule = 1;
+    // }
     //       }
 
 

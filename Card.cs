@@ -17,7 +17,7 @@ namespace Blackjack
       return $"{Rank} of {Suit}";
     }
 
-    
+
 
   }
 }

@@ -9,7 +9,7 @@ namespace Blackjack
     {
       var game = new Game();
       var deck = new Deck();
-      
+
       game.CreatePlayers();
 
       while (game.isPlaying)
