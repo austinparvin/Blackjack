@@ -10,6 +10,8 @@ namespace Blackjack
     public List<Player> Players { get; set; }
     // Methods
 
+    public bool isPlaying {get; set;}
+
     public Game()
     {
       Players = new List<Player>();
@@ -20,6 +22,10 @@ namespace Blackjack
       dealer.Hand = new List<Card>();
       dealer.HandValue = 0;
       Players.Add(dealer);
+
+      isPlaying = true;
+
+      var deck = new Deck();
     }
     // Create a players
 
@@ -122,6 +128,7 @@ namespace Blackjack
         }
       }
     }
+
     public void ValidateInput(string x, string y)
     {
       while (UserInput != x && UserInput != y)
@@ -132,6 +139,7 @@ namespace Blackjack
         UserInput = Console.ReadLine().ToLower();
       }
     }
+
     public void CreatePlayers()
     {
       var x = 1;
@@ -200,7 +208,7 @@ namespace Blackjack
       }
     }
 
-    public bool AskPlayAgain(bool isPlaying)
+    public bool AskPlayAgain()
     {
       Console.WriteLine("");
       Console.WriteLine("Press enter to play again or enter 'q' to quit");
