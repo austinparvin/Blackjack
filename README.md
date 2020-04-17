@@ -29,7 +29,10 @@ A multi-player of Blackjack with a computer dealer:
 
 ## Actions
 
-Players can either hit or stay
+Players can:
+
+- hit 
+- stay
 
 ## Single Player
 
