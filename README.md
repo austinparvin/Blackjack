@@ -1,10 +1,15 @@
 # Blackjack
 
-A multi-player of Blackjack with a computer dealer:
+A multi-player of Blackjack with a computer dealer
+
+## Includes:
 
 - [C#](https://docs.microsoft.com/en-us/dotnet/csharp/)
-
 - Multiple classes with methods
+
+# Featured Code
+
+## Multiple Classes In Use w/Methods
 
 ```C#
   static void Main(string[] args)
